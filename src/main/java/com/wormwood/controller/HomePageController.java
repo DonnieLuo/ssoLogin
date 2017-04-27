@@ -47,6 +47,6 @@ public class HomePageController {
 
 
 
-        return "gg";
+        return "forward:http://127.0.0.1:7001/pf";
     }
 }
