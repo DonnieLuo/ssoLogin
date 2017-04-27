@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * Created by kasimodo on 2016-07-26.
  */
@@ -42,11 +45,13 @@ public class HomePageController {
 
         return "login";
     }
+
+
     @RequestMapping(value = "/gg", method = RequestMethod.GET)
-    public @ResponseBody String gg() {
+    public String gg(HttpServletRequest request, HttpServletResponse response) {
 
 
-
-        return "forward:http://127.0.0.1:7001/pf";
+//        return "forward:http://127.0.0.1:7001/pf";
+        return "redirect:http://127.0.0.1:7001/pf?sessid=s";
     }
 }
