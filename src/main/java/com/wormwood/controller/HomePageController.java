@@ -45,6 +45,8 @@ public class HomePageController {
     @RequestMapping(value = "/gg", method = RequestMethod.GET)
     public @ResponseBody String gg() {
 
+
+
         return "gg";
     }
 }
