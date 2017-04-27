@@ -29,8 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
                 .csrf().disable()
                 .formLogin()
-                    .loginPage("/login").defaultSuccessUrl("/index").permitAll()
-                    .usernameParameter("ssoId").passwordParameter("ssoPassword").successHandler()
+                    .loginPage("/login").defaultSuccessUrl("/index", true).permitAll()
+                    .usernameParameter("ssoId").passwordParameter("ssoPassword")//.successHandler(new LoginSuccessHandler())
                     .permitAll()
                     .and()
                 .logout()
@@ -48,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return DataSourceBuilder.create().build();
     }
 
-    @Autowired
+    @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 

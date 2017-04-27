@@ -15,6 +15,34 @@
     <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
     <!-- Custom Theme Style -->
     <link href="/css/custom.min.css" rel="stylesheet"/>
+    <script type="text/javascript">
+        function setHeader() {
+
+//            oXMLHttpRequest.setRequestHeader("sm_user", "donnie");
+//            setRequestHeader("member", "CN=PF_AO,CN=PF_OFFR,OU=MPAINTRANET,DC=gov,DC=sg");
+//            RequestDispatcher.forward("http://127.0.0.1/pf")
+            $.ajax({
+                url: "http://127.0.0.1:7001/pf",
+                dataType: 'jsonp',
+                data:{sessid:'s'},
+//                data:{member:'CN=PF_AO,CN=PF_OFFR,OU=MPAINTRANET,DC=gov,DC=sg',sm_user:'donnie'},
+                type: 'GET',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("member", "CN=PF_AO,CN=PF_OFFR,OU=MPAINTRANET,DC=gov,DC=sg");
+                    xhr.setRequestHeader("sm_user", "donnie");
+
+                },
+                headers: {sm_user:"donnie",ff:'CN=PF_AO,CN=PF_OFFR,OU=MPAINTRANET,DC=gov,DC=sg'},
+                async: false,
+                cache: false,
+                //contentType: 'application/x-www-form-urlencoded',
+                success: function (sResponse) {
+//                    alert(sResponse);
+                }
+            });
+
+        }
+    </script>
 </head>
 
 <body class="nav-md">
@@ -154,7 +182,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <h4><a href="#">Login in</a></h4>
+                            <h4><a href="#" onclick="setHeader()">Login in</a></h4>
 
                         </div>
                     </div>
