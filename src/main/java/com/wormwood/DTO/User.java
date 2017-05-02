@@ -1,24 +1,31 @@
 package com.wormwood.DTO;
 
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by kasimodo on 2016-07-22.
  */
-@Entity(name = "user")
+@Entity
+@Table(name = "user")
 public class User implements Serializable{
+    @Id
     private Integer id;
-    private String userName ;
-    private String userPassword ;
+    private String username;
+    private String password ;
 
+    @Column(name = "org_code")
     private String companyOrgCode;
+    @Column(name = "co_name")
     private String companyName;
+    @Column(name = "role")
     private String role;
+    @Column(name = "role_type")
     private String roleType;
+    @Column(name = "email")
     private String email;
 
 
@@ -34,20 +41,20 @@ public class User implements Serializable{
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getUserPassword() {
-        return userPassword;
+        return password;
     }
 
     public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+        this.password = userPassword;
     }
 
     public String getCompanyOrgCode() {

@@ -1,3 +1,5 @@
+create database pm
+go
 CREATE TABLE user (
 	id int PRIMARY KEY AUTO_INCREMENT, 
 	username varchar(20) NOT NULL, 
